@@ -3,6 +3,9 @@ interface ProductFilterProps {
   onToggleInStock: (checked: boolean) => void;
   productCount: number;
   saleCount: number;
+  onSyncOnlineCatalog?: () => void;
+  onSyncDeals?: () => void;
+  isSyncing?: boolean;
 }
 
 export function ProductFilter({
@@ -10,7 +13,12 @@ export function ProductFilter({
   onToggleInStock,
   productCount,
   saleCount,
+  onSyncOnlineCatalog,
+  onSyncDeals,
+  isSyncing = false,
 }: ProductFilterProps) {
+  const handleSync = onSyncOnlineCatalog ?? onSyncDeals;
+
   return (
     <section className="catalog-filter-bar">
       <div className="filter-controls">
@@ -29,6 +37,17 @@ export function ProductFilter({
             🔥 {saleCount} on sale
           </span>
         )}
+
+        {handleSync && (
+          <button
+            type="button"
+            onClick={handleSync}
+            disabled={isSyncing}
+            className="sync-button"
+          >
+            {isSyncing ? 'Syncing...' : 'Sync Online Catalog'}
+          </button>
+        )}
       </div>
 
       <div className="product-count-display">
@@ -37,3 +56,4 @@ export function ProductFilter({
     </section>
   );
 }
+

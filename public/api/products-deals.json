@@ -1,0 +1,32 @@
+[
+  {
+    "id": "deal-1",
+    "name": "Smart Noise-Canceling Earbuds Pro",
+    "price": 89.99,
+    "costPrice": 45.0,
+    "inStock": true,
+    "onSale": true,
+    "category": "AUDIO",
+    "description": "Premium wireless earbuds with active noise cancellation and 30-hour battery life."
+  },
+  {
+    "id": "deal-2",
+    "name": "Ultra-Slim 4K Webcam 60FPS",
+    "price": 64.5,
+    "costPrice": 32.0,
+    "inStock": true,
+    "onSale": true,
+    "category": "VIDEO",
+    "description": "Crisp 4K streaming webcam with autofocus and dual noise-reducing microphones."
+  },
+  {
+    "id": "deal-3",
+    "name": "RGB Extended Gaming Mousepad",
+    "price": 19.99,
+    "costPrice": 8.0,
+    "inStock": false,
+    "onSale": true,
+    "category": "ACCESSORIES",
+    "description": "Extra large stitched surface with customizable 14-mode RGB perimeter illumination."
+  }
+]
