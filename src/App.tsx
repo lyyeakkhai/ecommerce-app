@@ -12,15 +12,15 @@ function App() {
     return new URLSearchParams(window.location.search).get('inStockOnly') === 'true';
   });
 
-  const handleAddProduct = (newProduct: Product) => {
+  const handleAddProduct = (newProduct: Product): void => {
     setProducts((prev) => [newProduct, ...prev]);
   };
 
-  const filteredProducts = inStockOnly
+  const filteredProducts: Product[] = inStockOnly
     ? products.filter((product) => product.inStock)
     : products;
 
-  const saleCount = products.filter((product) => product.onSale).length;
+  const saleCount: number = products.filter((product) => product.onSale).length;
 
   return (
     <div className="app-container">
