@@ -6,13 +6,15 @@ interface ProductGridProps {
 }
 
 export function ProductGrid({ products }: ProductGridProps) {
+  const productList = products ?? [];
+
   return (
     <div className="product-grid-container">
-      {products.length === 0 ? (
+      {productList.length === 0 ? (
         <p className="empty-catalog-message">No products found matching your filter.</p>
       ) : (
         <div className="product-grid">
-          {products.map((product) => (
+          {productList.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
@@ -20,3 +22,4 @@ export function ProductGrid({ products }: ProductGridProps) {
     </div>
   );
 }
+
