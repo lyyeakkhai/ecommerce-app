@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Product, ProductFormData, FormErrors } from '../types';
+import type { Product, ProductFormData, FormErrors } from '../types';
 import { validateProductForm } from '../utils/validation';
 
 interface AddProductFormProps {

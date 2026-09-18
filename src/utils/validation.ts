@@ -1,4 +1,4 @@
-import { ProductFormData, ValidationResult, FormErrors } from '../types';
+import type { ProductFormData, ValidationResult, FormErrors } from '../types';
 
 export function validateProductForm(data: ProductFormData): ValidationResult {
   const errors: FormErrors = {};
