@@ -23,4 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 .superpowers/
+.agents/
+.claude/
+.codebuddy/
+.hermes/
+.kiro/
+.qoder/
+skills-lock.json
+
 

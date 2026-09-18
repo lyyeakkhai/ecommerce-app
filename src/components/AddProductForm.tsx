@@ -15,7 +15,14 @@ const initialFormState: ProductFormData = {
 
 export function AddProductForm({ onAddProduct }: AddProductFormProps) {
   const [formData, setFormData] = useState<ProductFormData>(initialFormState);
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [errors, setErrors] = useState<FormErrors>(() => {
+    return new URLSearchParams(window.location.search).get('showErrors') === 'true'
+      ? {
+          name: 'Product name is required.',
+          price: 'Price must be a valid number greater than 0.',
+        }
+      : {};
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;

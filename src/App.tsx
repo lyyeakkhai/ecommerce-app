@@ -8,7 +8,9 @@ import './App.css';
 
 function App() {
   const [products, setProducts] = useState<Product[]>(initialProducts);
-  const [inStockOnly, setInStockOnly] = useState<boolean>(false);
+  const [inStockOnly, setInStockOnly] = useState<boolean>(() => {
+    return new URLSearchParams(window.location.search).get('inStockOnly') === 'true';
+  });
 
   const handleAddProduct = (newProduct: Product) => {
     setProducts((prev) => [newProduct, ...prev]);
