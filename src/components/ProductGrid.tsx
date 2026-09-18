@@ -2,21 +2,19 @@ import type { Product } from '../types';
 import { ProductCard } from './ProductCard';
 
 interface ProductGridProps {
-  products: Product[];
+  products: Product[] | null;
 }
 
 export function ProductGrid({ products }: ProductGridProps) {
   return (
     <div className="product-grid-container">
-      {products.length === 0 ? (
-        <p className="empty-catalog-message">No products found matching your filter.</p>
-      ) : (
-        <div className="product-grid">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      )}
+      {/* Bug 1 planted: Direct .map() call without null check causes crash when products is null */}
+      <div className="product-grid">
+        {(products as unknown as Product[]).map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 }
+

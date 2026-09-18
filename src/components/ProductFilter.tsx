@@ -1,7 +1,8 @@
-interface ProductFilterProps {
+export interface ProductFilterProps {
   inStockOnly: boolean;
   onToggleInStock: (checked: boolean) => void;
-  productCount: number;
+  productCount?: number;
+  productsCount?: number; // Bug 2 planted typo
   saleCount: number;
   onSyncOnlineCatalog?: () => void;
   onSyncDeals?: () => void;
@@ -15,8 +16,9 @@ export function ProductFilter({
   saleCount,
   onSyncOnlineCatalog,
   onSyncDeals,
-  isSyncing = false,
+  isSyncing,
 }: ProductFilterProps) {
+
   const handleSync = onSyncOnlineCatalog ?? onSyncDeals;
 
   return (
